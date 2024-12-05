@@ -1,0 +1,61 @@
+<div class="container p-6">
+  <div class="tabs is-right">
+    <ul>
+      <li class="<%= 'is-active' unless params[:category_id] %>">
+        <%= link_to 'All', products_path(query: params[:query]) %>
+      </li>
+      <% Category.all.each do |category| %>
+        <li class="<%= 'is-active' if params[:category_id].to_i == category.id %>">
+          <%= link_to category.name, products_path(category_id: category.id, query: params[:query]) %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="is-flex is-flex-wrap-wrap is-justify-content-space-between is-align-items-center mb-6">
+    <h1 class="has-text-black is-size-1">All Products</h1>
+    <%= form_with url: products_path, method: :get, local: true do %>
+      <div class="field is-grouped navbar-item">
+        <div class="control has-icons-right" style="position: relative;">
+          <input
+            class="input search-placeholder has-background-white has-text-black"
+            type="text"
+            name="query"
+            placeholder="Search Products"
+            value="<%= params[:query] %>"
+            id="search-input"
+          >
+          <button
+            type="button"
+            id="clear-search"
+            class="delete"
+            style="position: absolute; right: 10px; top: 10px;"
+            aria-label="Clear search"
+          ></button>
+        </div>
+        <div class="control">
+          <button type="submit" class="button is-warning has-text-black">Search</button>
+        </div>
+
+        <!-- Hidden field for category if present -->
+        <% if params[:category_id].present? %>
+          <%= hidden_field_tag :category_id, params[:category_id] %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <% if @products.any? %>
+    <div class="grid is-gap-6 product-grid">
+      <% @products.each do |product| %>
+        <div class="cell">
+          <%= render partial: 'product', locals: { product: product } %>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <p>There are no products now.</p>
+  <% end %>
+
+  <nav class="is-flex is-justify-content-flex-end pagination-nav">
+    <%= render 'share/pagination', collection: @products %>
+  </nav>
+</div>

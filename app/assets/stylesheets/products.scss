@@ -1,0 +1,165 @@
+body {
+    padding-top: 100px;
+}
+
+// table
+.table {
+    --bulma-table-background-color: white;
+    --bulma-table-color: black;
+}
+
+.dogs-table {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.owners-table {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.table thead td, .table thead th {
+    color: black;
+}
+
+.table td {
+    vertical-align: middle;
+    width: 0%;
+}
+
+.table th {
+    color: black;
+}
+
+// product image
+.product-image, .product-detail-image {
+    border-radius: 10px;
+    border: 1px solid black; 
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    height: 100px;
+    object-fit: cover;
+}
+
+.product-card-image {
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+// navbar
+.navbar-item.is-active {
+    background-color: transparent;
+    color: white;
+}
+
+
+// pagination
+.pagination-nav {
+    margin-top: 100px;
+}
+
+.pagination-link.is-current {
+    background-color: hsl(42, 93%, 63%);
+    color: black;
+    border-color: hsl(42, 93%, 63%);
+}
+
+.pagination-link, .pagination-next, .pagination-previous {
+    color: black;
+}
+
+// card
+.card {
+    border: 0.5px solid black;
+}
+
+.product-name, .product-price {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+}
+
+.product-name {
+  max-width: 100%;
+}
+
+.product-price {
+  max-width: 100%; 
+}
+
+.has-shadow {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.star-image {
+    width: 20px;
+}
+
+// products grid
+.product-grid {
+    max-width: 1050px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.user-image {
+    object-fit: cover;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+// input
+.input::placeholder {
+    color: black;
+    opacity: 0.6; 
+}
+
+.signup-container {
+    max-width: 500px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    border-radius: 10px;
+}
+
+.tabs {
+    --bulma-tabs-link-active-color: hsl(42, 93%, 63%);
+    --bulma-tabs-link-active-border-bottom-color: hsl(42, 93%, 63%);
+    --bulma-tabs-link-hover-color: hsl(42, 93%, 63%);
+    --bulma-tabs-link-hover-border-bottom-color: hsl(42, 93%, 63%);
+}
+
+.search-placeholder::placeholder {
+    color: hsl(0, 0%, 48%);
+}
+
+// Cart Link
+.cart-link {
+    gap: 5px;
+}
+  
+.cart-count {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+// Order 
+.order-box {
+    border: 1px solid #ada9a9;
+}
+
+.sticky-section {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #f5f5f5;
+}
+
+.order-box {
+    padding-top: 100px;
+    overflow: hidden;
+}
+

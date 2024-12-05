@@ -1,0 +1,56 @@
+<nav class="navbar is-fixed-top">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="/" style="color: black;">
+  Simple Goods
+</a>
+    <div class="navbar-burger js-burger" data-target="navbarExample">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+   <div id="navbarExample" class="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item" 
+         href="/" 
+         style="<%= current_page?('/') ? 'color: black; font-weight: bold;' : 'color: inherit;' %>">
+         Products
+      </a>
+      <% if logged_in? %>
+        <a class="navbar-item" 
+           href="/orders" 
+           style="<%= current_page?('/orders') ? 'color: black; font-weight: bold;' : 'color: inherit;' %>">
+           Orders
+        </a>
+        <a class="navbar-item cart-link" 
+           href="/cart" 
+           style="<%= current_page?('/cart') ? 'color: black; font-weight: bold;' : 'color: inherit;' %>">
+           <% if @cart_item_count > 0 %>
+             <span class="tag is-warning is-rounded cart-count"><%= @cart_item_count %></span>
+           <% end %>
+           Cart
+        </a>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="navbar-end">
+    <div class="navbar-item">
+      <div class="buttons">
+        <% if logged_in? %>
+          <span class="navbar-item has-text-white">Welcome, <%= current_user.first_name %> <%= current_user.last_name %></span>
+          <%= button_to 'Logout', logout_path, method: :delete, class: "button is-danger has-text-black" %>
+        <% else %>
+          <a class="button is-primary" href="/signup">
+            <strong>Sign up</strong>
+          </a>
+          <a class="button is-light" href="/login">
+            Login
+          </a>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</nav>
