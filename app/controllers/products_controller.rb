@@ -10,7 +10,11 @@ class ProductsController < ApplicationController
 
     # Filter by search query if provided
     if params[:query].present?
-      @products = @products.where("name ILIKE ?", "%#{params[:query]}%")
+      if ActiveRecord::Base.connection.adapter_name == "SQLite"
+        @products = @products.where("LOWER(name) LIKE ?", "%#{params[:query].downcase}%")
+      else
+        @products = @products.where("name ILIKE ?", "%#{params[:query]}%")
+      end
     end
 
     # Paginate the products
