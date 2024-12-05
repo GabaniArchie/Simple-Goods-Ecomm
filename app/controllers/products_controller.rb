@@ -62,3 +62,5 @@ class ProductsController < ApplicationController
     params.permit(:quantity, :unit_price)
   end
 end
+
+
