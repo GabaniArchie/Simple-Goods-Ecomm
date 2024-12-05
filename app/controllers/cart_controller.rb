@@ -5,7 +5,7 @@ class CartController < ApplicationController
     end
 
     def update_quantity
-        order_item = OrderItem.find(params[:id)
+        order_item = OrderItem.find(params[:id])
 
         if params[:button_action] == 'increase'
             order_item.quantity += 1
