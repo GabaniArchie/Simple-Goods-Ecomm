@@ -11,7 +11,7 @@ class LoginController < ApplicationController
           session[:user_id] = @user.id
     
           # Set a cookie for persistent login
-          cookies.signed[:simple_goods_user_id] = { value: @user.id, expires: 2.weeks.from_now }
+          cookies.signed[:samlee_home_goods_user_id] = { value: @user.id, expires: 2.weeks.from_now }
     
           flash[:notice] = "Login successfully!"
           redirect_to root_path
